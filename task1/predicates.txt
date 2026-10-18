@@ -1,17 +1,22 @@
-ноутбук.
-M(x,y) - переместить файл x в папку y
-D(x) - файл x удаляется сразу
-K(x,y) - файл x хранится в папке y
-S(x,y) - файл x имеет размер y
-M(File, kor),S(File,large) -> D(File)
-M(File, kor),S(File, small) -> K(File, kor)
-M(File, Dir) -> K(File, Dir)
+тема: ноутбук
+size(x,y) - файл x имеет размер y
+delete(x) - файл x удаляется сразу
+move(x,y) - файл x перемещается в папку y
+store(x,y) - файл x хранится в папке y
 
-S(script,small)
-S(video,large)
-S(text,small)
-M(script, kor) -> K(script, kor)
-M(video, kor) -> D(video)
-M(text, docs) -> K(text, docs)
+move(File, kor),size(File,large) -> delete(File)
+move(File, Dir),Dir \= kor -> store(File, Dir)
+move(File, kor)size(File,small) -> store(File, kor)
 
+size(script, small)
+size(video, large)
+size(text, small)
+move(script, kor)
+move(video, kor)
+move(text, docs)
+
+store(X, kor).
+delete(X).
+store(X, docs).
+store(video, kor).
 
