@@ -1,0 +1,17 @@
+ноутбук.
+M(x,y) - переместить файл x в папку y
+D(x) - файл x удаляется сразу
+K(x,y) - файл x хранится в папке y
+S(x,y) - файл x имеет размер y
+M(File, kor),S(File,large) -> D(File)
+M(File, kor),S(File, small) -> K(File, kor)
+M(File, Dir) -> K(File, Dir)
+
+S(script,small)
+S(video,large)
+S(text,small)
+M(script, kor) -> K(script, kor)
+M(video, kor) -> D(video)
+M(text, docs) -> K(text, docs)
+
+
